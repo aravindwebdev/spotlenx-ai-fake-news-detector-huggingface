@@ -1,0 +1,4 @@
+project_id = "jxnjcsocsmwudmiacnbi"
+
+[functions.fact-check-api]
+verify_jwt = false

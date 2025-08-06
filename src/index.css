@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern Black & White Design System */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Success colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+
+    /* Warning colors */
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 9%;
+
+    --border: 0 0% 93%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 9%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 45%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 93%;
+    --sidebar-ring: 0 0% 9%;
+
+    /* Modern gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 9%), hsl(0 0% 20%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 9% / 0.1);
+    --shadow-button: 0 4px 14px 0 hsl(0 0% 9% / 0.1);
+    --shadow-card: 0 2px 10px hsl(0 0% 9% / 0.08);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark mode - Sophisticated black design */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 3%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Success colors for dark mode */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+
+    /* Warning colors for dark mode */
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 9%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 6%;
+    --ring: 0 0% 98%;
+
+    /* Dark sidebar */
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 65%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 98%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 85%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 3%), hsl(0 0% 6%));
+    
+    /* Dark shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    --shadow-button: 0 4px 14px 0 hsl(0 0% 0% / 0.2);
+    --shadow-card: 0 2px 10px hsl(0 0% 0% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-medium;
+    transition: var(--transition-smooth);
+  }
+
+  /* Modern button styles */
+  .btn-modern {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:bg-primary/90 focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    @apply transition-all duration-200 ease-in-out;
+    @apply shadow-[var(--shadow-button)] hover:shadow-[var(--shadow-elegant)];
+    @apply active:scale-[0.98];
+  }
+
+  /* Modern input styles */
+  .input-modern {
+    @apply flex h-11 w-full rounded-lg border border-border bg-input px-4 py-2;
+    @apply text-sm placeholder:text-muted-foreground;
+    @apply focus:border-ring focus:ring-2 focus:ring-ring/20;
+    @apply transition-all duration-200 ease-in-out;
+    @apply shadow-sm hover:shadow-md focus:shadow-lg;
+  }
+
+  /* Card modern styles */
+  .card-modern {
+    @apply rounded-xl border bg-card text-card-foreground;
+    @apply shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elegant)];
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
